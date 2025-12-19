@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import fs from 'fs';
 import path from 'path';
-import { IFlights } from "../dto/IFlights";
+import { IFlights } from "../mappers/MapperFlights";
 import { FlightService } from "../../service/service";
 
 const dataPath = path.join(process.cwd(), 'src', 'data', 'data.json');

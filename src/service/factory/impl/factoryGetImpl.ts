@@ -1,4 +1,4 @@
-import { IFlight} from "../../../controller/dto/IFlights";
+import { IFlight} from "../../../controller/mappers/MapperFlights";
 import { IFlightTransformer, IHomePage } from "../factoryGet";
 
 export class factoryGetImpl implements IFlightTransformer {

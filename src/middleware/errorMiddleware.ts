@@ -1,12 +1,9 @@
 import { Request, Response, NextFunction } from "express";
 
 import { StatusCodes } from "http-status-codes";
-import { IError } from "./IError";
+import { IError,createError } from "./IError";
 
-const createError = (message: string): IError => ({
-    status: StatusCodes.BAD_REQUEST,
-    error: message
-});
+
 export const validationPagination = (req: Request, res: Response, next: NextFunction) => {
     
  const { page, limit } = req.query;

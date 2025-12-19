@@ -1,4 +1,4 @@
-import { IFlight } from "../../controller/dto/IFlights";
+import { IFlight } from "../../controller/mappers/MapperFlights";
 
 export interface IHomePage{
     id:string,

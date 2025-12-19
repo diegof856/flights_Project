@@ -1,4 +1,4 @@
-import { IFlights } from "../controller/dto/IFlights"
+import { IFlights } from "../controller/mappers/MapperFlights"
 
 import { IFlightTransformer, IHomePage, IPaginatedResponse } from "./factory/factoryGet"
 
