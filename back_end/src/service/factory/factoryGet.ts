@@ -9,8 +9,8 @@ export interface IHomePage{
     paraOndeVai:string
     data:string
 }
-export interface IPaginatedResponse<T> {
-    data: T[];
+export interface IPaginatedResponse<IHomePage> {
+    data: IHomePage[];
     total: number;
     page: number;
     totalPages: number;
@@ -20,4 +20,12 @@ export interface IFlightTransformer {
 
     transformSingle(flight:IFlight): IHomePage;
 
+}
+export interface ISoldTotal{
+    saldoTotal:number
+    quantidadeVoosSomados:number
+   
+}
+export interface ICreateSold{
+    createSoldTotal(total:number,quantityObj:number):ISoldTotal;
 }

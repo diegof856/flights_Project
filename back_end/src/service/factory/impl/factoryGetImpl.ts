@@ -1,7 +1,13 @@
 import { IFlight} from "../../../controller/mappers/MapperFlights";
-import { IFlightTransformer, IHomePage } from "../factoryGet";
+import { IFlightTransformer, IHomePage,ICreateSold, ISoldTotal } from "../factoryGet";
 
-export class factoryGetImpl implements IFlightTransformer {
+export class factoryGetImpl implements IFlightTransformer,ICreateSold {
+    createSoldTotal(total: number,quantityObj:number): ISoldTotal {
+        return{
+            saldoTotal:total,
+           quantidadeVoosSomados:quantityObj
+        }
+    }
     transformSingle(flight: IFlight): IHomePage {
         return {
             id: flight.id,

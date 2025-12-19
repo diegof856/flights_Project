@@ -2,12 +2,14 @@ import { StatusCodes } from "http-status-codes";
 import { IFlights, IFlight } from "../controller/mappers/MapperFlights"
 import { AppError } from "../errors/AppError";
 
-import { IFlightTransformer, IHomePage, IPaginatedResponse } from "./factory/factoryGet"
+import { ICreateSold, IFlightTransformer, IHomePage, IPaginatedResponse, ISoldTotal } from "./factory/factoryGet"
 
 export class FlightService {
     private transformer: IFlightTransformer;
-    constructor(transformer: IFlightTransformer) {
+    private calculator:ICreateSold;
+    constructor(transformer: IFlightTransformer, calculator:ICreateSold) {
         this.transformer = transformer;
+        this.calculator = calculator
     }
     public getPaginated = (data: IFlights, page: number, limit: number): IPaginatedResponse<IHomePage> => {
         const allTransformed = this.transformAll(data);
@@ -49,8 +51,12 @@ export class FlightService {
         }
         return flight;
     };
-    public getCalculateFlights =(data: IFlights)=>{
-        
+    public getCalculateFlights =(data: IFlights):ISoldTotal=>{
+        let total = 0;
+        for(let i = 0; i < data.flights.length;i++){
+            total+= data.flights[i].flightData.balance
+        }
+        return this.calculator.createSoldTotal(Number(total.toFixed(2)),data.flights.length);
     }
 
 }
