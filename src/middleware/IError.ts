@@ -1,10 +1,9 @@
-import { StatusCodes } from "http-status-codes";
 
-export interface IError{
-status:number,
-error:string;
+interface IError {
+    status: number,
+    error: string;
 }
-export const createError = (message: string): IError => ({
-    status: StatusCodes.BAD_REQUEST,
+export const createError = (message: string, status: number): IError => ({
+    status: status,
     error: message
 });

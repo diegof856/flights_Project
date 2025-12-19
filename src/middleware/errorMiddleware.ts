@@ -1,18 +1,16 @@
-import { Request, Response, NextFunction } from "express";
-
+import e, { NextFunction, Request, Response } from "express";
 import { StatusCodes } from "http-status-codes";
-import { IError,createError } from "./IError";
+import {createError } from "./IError";
+import { AppError } from "../errors/AppError";
 
 
-export const validationPagination = (req: Request, res: Response, next: NextFunction) => {
+export const errorHandler= (err:Error,req: Request, res: Response,next: NextFunction) => {
     
- const { page, limit } = req.query;
+ if (err instanceof AppError) {
+    const personError =createError(err.message,err.statusCode) 
+    return res.status(err.statusCode).json(personError);
+    }
+    const defaultError = createError("Erro interno do servidor, contacte o administrador.",StatusCodes.INTERNAL_SERVER_ERROR) 
+    return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json(defaultError);
 
-    if (page && isNaN(Number(page))) {
-        return res.status(StatusCodes.BAD_REQUEST).json(createError("O parâmetro 'page' deve ser um número válido"));
-    }
-if (limit && isNaN(Number(limit))) {
-        return res.status(StatusCodes.BAD_REQUEST).json( createError("O parâmetro 'limit' deve ser um número."));
-    }
- next();
 }
