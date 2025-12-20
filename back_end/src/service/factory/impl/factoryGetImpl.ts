@@ -16,7 +16,8 @@ export class factoryGetImpl implements IFlightTransformer,ICreateSold {
             linhaAerea: flight.aircraft.airline,
             ondeEsta: flight.flightData.route.from,
             paraOndeVai: flight.flightData.route.to,
-            data: flight.flightData.date
+            data: flight.flightData.date,
+            saldo:flight.flightData.balance
         }
     }
 

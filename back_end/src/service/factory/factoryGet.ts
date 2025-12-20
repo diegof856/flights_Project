@@ -8,6 +8,7 @@ export interface IHomePage{
     ondeEsta:string,
     paraOndeVai:string
     data:string
+    saldo:number
 }
 export interface IPaginatedResponse<IHomePage> {
     data: IHomePage[];
