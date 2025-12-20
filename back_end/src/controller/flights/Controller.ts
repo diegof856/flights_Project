@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from "express";
 import fs from 'fs';
 import path from 'path';
-import { IFlights } from "../mappers/MapperFlights";
+import { IFlights } from "../../mappers/MapperFlights";
 import { FlightService } from "../../service/service";
 import { validatePageAndLimit, validationId } from "../validation/validation";
 
@@ -30,13 +30,14 @@ export class FlightController {
 
 
     }
-    public getCalculateBalance = (req: Request, res: Response, next: NextFunction)=>{
+    public getCalculateBalance = (req: Request, res: Response, next: NextFunction) => {
         try {
-        res.json(this.service.getCalculateFlights(this.processData(dataPath)))
+            res.json(this.service.getCalculateFlights(this.processData(dataPath)))
         } catch (error) {
             next(error);
         }
     }
+    // helper methods
     private processData(dataPath: string): IFlights {
         const rawData = fs.readFileSync(dataPath, 'utf-8');
         const flightsData = JSON.parse(rawData) as IFlights;

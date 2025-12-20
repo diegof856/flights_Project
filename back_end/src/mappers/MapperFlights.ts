@@ -8,11 +8,12 @@ interface IAircraft {
     registration: string;
     airline: string;
 }
- export interface IFlight {
+export interface IFlight {
     id: string;
     aircraft: IAircraft;
     flightData: IFlightData;
 }
+
 interface IFlightData {
     date: string;
     balance: number;
