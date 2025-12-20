@@ -1,0 +1,16 @@
+.home_first_article{
+    gap: .22em;
+}
+.home_first_article h2, h6{
+   
+    font-family: "Sora" ,sans-serif;
+}
+.home_first_article h2{
+  font-weight: 700;
+    font-size: 1.25em;
+     margin-bottom: 0;
+}
+.home_first_article p{
+    font-size: 1.125em;
+    font-weight: 400;
+}
