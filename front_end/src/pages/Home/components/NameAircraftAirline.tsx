@@ -1,5 +1,3 @@
-
-
 interface AircraftAirline{
     aircraft:string;
     airline:string;
@@ -8,7 +6,7 @@ interface AircraftAirline{
 
 const NameAircraftAirline = (props: AircraftAirline) => {
   return (
-    <div className="d-flex flex-column gap-3" >
+    <div className="d-flex flex-column gap-3 w-100" >
         <h3 className="fs-6 fw-semibold">{props.aircraft}</h3>
         <h4 className="fs-6">{props.airline}</h4>
     </div>

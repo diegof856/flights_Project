@@ -8,7 +8,7 @@ interface FlightRoute {
 
 const FlightRoute = (props: FlightRoute) => {
     return (
-        <div className={`d-flex align-items-center flex-column  ${styles.flightRouteFirstDiv}`}>
+        <div className="d-flex align-items-center flex-column w-100 ">
             <h4 className="fs-6 r">Trajeto</h4>
             <div className={`d-flex align-items-center justify-content-between ${styles.flightRouteContainer}`}>
                 <span className={styles.circle}></span>

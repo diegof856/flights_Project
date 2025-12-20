@@ -6,10 +6,6 @@
   --font-size-secondary: 1em;
 }
 
-html {
-  min-height: 60vh;
-}
-
 h1,
 h2,
 h3,
@@ -24,6 +20,7 @@ h6 {
 #root {
   color: var(--primary-color-text);
   font-weight: 400;
+
 }
 
 body {
