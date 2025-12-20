@@ -5,27 +5,64 @@
   --font-size-principal: .75em;
   --font-size-secondary: 1em;
 }
-html,
+
+html {
+  min-height: 60vh;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+
+}
+
+#root {
+  color: var(--primary-color-text);
+  font-weight: 400;
+}
+
 body {
   font-family: "Manrope", sans-serif;
   background-color: var(--primary-color);
-  color: var(--primary-color-text);
-  font-weight: 400;
-
 }
+
+
 nav {
-  margin-top: .6em;
+
+  margin-top: 2em;
   display: flex;
   flex-direction: column;
   align-items: center;
 
-
 }
-main{
-  margin: 1em 0;
+
+main {
+  margin: 4em 0;
 }
 
 p {
   margin: 0;
   font-size: var(--font-size-principal);
+}
+
+h2,
+h6 {
+  font-family: "Sora", sans-serif;
+}
+
+h2 {
+  font-weight: 700;
+  font-size: 1.25em;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
 }

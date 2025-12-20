@@ -26,7 +26,7 @@ export class factoryImpl implements IFlightTransformer, ICreateFlightResponse, I
             linhaAerea: flight.aircraft.airline,
             ondeEsta: flight.flightData.route.from,
             paraOndeVai: flight.flightData.route.to,
-            data: flight.flightData.date,
+            data: this.formetterDate(flight.flightData.date),
             saldo: this.formatterBalance(flight.flightData.balance)
         }
     }

@@ -16,12 +16,12 @@ export class FlightService {
     }
     public getPaginated = (data: IFlights, page: number, limit: number): IPaginatedResponse<IHomePage> => {
         const allTransformed = this.transformAll(data);
-        const { paginatedItems, total, currentPage, totalPages, hasNextPage } =
+        const { paginatedItems, total, totalPages, hasNextPage } =
             this.calculatePages(allTransformed, page, limit);
         return {
             data: paginatedItems,
             total: total,
-            page: currentPage,
+            page,
             totalPages,
             hasNextPage
         };
@@ -48,16 +48,14 @@ export class FlightService {
     private calculatePages(data: IHomePage[], page: number, limit: number) {
         const total = data.length;
         const totalPages = Math.ceil(total / limit);
-        const currentPage = Math.max(1, page);
-        let hasNextPage = currentPage < totalPages
-        const startIndex = (currentPage - 1) * limit;
+        let hasNextPage = page < totalPages
+        const startIndex = (page - 1) * limit;
         const endIndex = startIndex + limit;
         const paginatedItems = data.slice(startIndex, endIndex);
 
         return {
             paginatedItems,
             total,
-            currentPage,
             totalPages,
             hasNextPage
 

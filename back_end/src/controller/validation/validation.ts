@@ -13,7 +13,7 @@ export const validatePageAndLimit = (req: Request) => {
     }
     return {
         page: parseInt(page as string) || 1,
-        limit: parseInt(limit as string) || 10
+        limit: parseInt(limit as string) || 5
     };
 }
 export const validationId = (id:string)=>{
