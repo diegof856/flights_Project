@@ -8,41 +8,48 @@ import Trophy from "../../assets/trophy.svg";
 import TotalEarnings from "./components/TotalEarnings";
 import Loading from "../../components/Loading";
 import Error from "../../components/Error";
-import StarXp  from "./components/StarXp";
+import StarXp from "./components/StarXp";
 import Bonus from "./components/Bonus";
+import ListFlights from "../../components/ListFlights";
 interface DetailsProps {
   url: string;
 }
 const Details = ({ url }: DetailsProps) => {
   const { id } = useParams();
-    const { data:apiResponse, loading,error } = useFetchById(`${url}/${id}`);
-  
+  const { data: apiResponse, loading, error } = useFetchById(`${url}/${id}`);
+
   return (
-    <main className="sm md lg container">
-      <NavLink to={`/`} className={`d-flex flex-row align-items-center
- ${styles.details_first_article}`}>
+    <main className="sm md lg container d-flex flex-column w-100 gap-5">
+      <NavLink to={`/`} className={`d-flex flex-row align-items-center ${styles.details_first_article}`}>
         <img src={Arrow} className={styles.imgDetails} alt="icone de retorno a pagina anterior" />
         <h3 className="fw-bold">Detalhes do voo</h3>
       </NavLink>
-    <section className={styles.sectionRewards}>
-      <article className="d-flex flex-row align-items-center gap-2">
-        <img src={Trophy}  className={styles.imgDetails} alt="icone de um trofeu" />
-        <h3 className="fw-bold">Recompensas</h3>
-      </article>
-      {loading && <Loading/>}
-      {error && <Error/>}
-      {!loading && apiResponse && 
-      (
-         <article className="d-flex justify-content-between">
-          <TotalEarnings totalEarnings={apiResponse.ganhosTotais}/>
-        <StarXp xp={apiResponse.xp}/>
-         <Bonus bonus={apiResponse.bonus}/>
-      </article>
-      )
-      
-      }
-     
-    </section>
+
+      <section className={styles.sectionRewards}>
+        <article className="d-flex flex-row align-items-center gap-2">
+          <img src={Trophy} className={styles.imgDetails} alt="icone de um trofeu" />
+          <h3 className="fw-bold">Recompensas</h3>
+        </article>
+        {loading && <Loading />}
+        {error && <Error />}
+        {!loading && apiResponse &&
+          (
+            <article className="d-flex justify-content-between">
+              <TotalEarnings totalEarnings={apiResponse.ganhosTotais} />
+              <StarXp xp={apiResponse.xp} />
+              <Bonus bonus={apiResponse.bonus} />
+            </article>
+          )
+        }
+      </section>
+
+      <section className={styles.sectionRewards}>
+
+        {!loading && apiResponse &&
+          <ListFlights aircraft={apiResponse.aeronave} airline={apiResponse.linhaAerea} data={apiResponse.data} from={apiResponse.paraOndeVai} id={apiResponse.id} registration={apiResponse.matricula} to={apiResponse.ondeEsta} />
+        }
+      </section>
+
     </main>
   )
 }

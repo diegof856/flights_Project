@@ -9,7 +9,7 @@ const TotalEarnings = ({totalEarnings}:TotalEarningsProps) => {
   return (
   <div className="d-flex gap-4">
     <span className={style.circleTotalEarnings}>P$</span>
-          <div className={style.earnings_secondary_div}>
+          <div className={`gapDetails ${style.earnings_secondary_div}`}>
             <h6 className="fw-normal">Ganhos totais</h6>
             <h3 className={`${textColor} fw-bold`}>{`${isNegative ? "-":""} P$ ${displayValue}`}</h3>
           </div>

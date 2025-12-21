@@ -11,7 +11,7 @@ interface Flight {
   saldo: string;
 }
 
-export interface FetchResponse {
+interface FetchResponse {
   data: Flight[];
   total: number;
   page: number;
