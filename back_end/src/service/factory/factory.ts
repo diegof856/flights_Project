@@ -3,16 +3,16 @@ import { IFlight } from "../../mappers/MapperFlights";
 
 export interface IHomePage {
     id: string,
-    aeronave: string,
-    linhaAerea: string
-    matricula: string,
-    ondeEsta: string,
-    paraOndeVai: string
-    data: string
-    saldo:string
+    aircraft: string,
+    airline: string
+    registration: string,
+    from: string,
+    to: string
+    date: string
+    sold: string
 }
 export interface IPaginatedResponse<IHomePage> {
-    data: IHomePage[];
+    date: IHomePage[];
     total: number;
     page: number;
     totalPages: number;
@@ -20,20 +20,20 @@ export interface IPaginatedResponse<IHomePage> {
 }
 export interface IFlightResponse {
     id: string,
-    ganhosTotais: string,
+    totalEarnings: string,
     xp: number
     bonus: string,
-    linhaAerea: string,
-    aeronave: string,
-    ondeEsta: string,
-    paraOndeVai: string
-    matricula: string,
-    data: string
+    airline: string,
+    aircraft: string,
+    from: string,
+    to: string
+    registration: string,
+    date: string
 
 }
 export interface ISoldTotal {
-    saldoTotal: string
-    quantidadeVoosSomados: number
+    totalBalance: string
+    totalFlights: number
 
 }
 export interface ICreateSold {

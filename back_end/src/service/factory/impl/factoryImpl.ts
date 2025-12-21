@@ -5,14 +5,14 @@ export class factoryImpl implements IFlightTransformer, ICreateFlightResponse, I
     createResponse(flight: IFlight): IFlightResponse {
         return {
             id: flight.id,
-            aeronave: flight.aircraft.name,
+            aircraft: flight.aircraft.name,
             bonus: this.formatterMissonBonus(flight.flightData.missionBonus),
-            data: this.formetterDate(flight.flightData.date),
-            ganhosTotais: this.calculateTotalPointsDetails(flight.flightData.balance, flight.flightData.missionBonus),
-            linhaAerea: flight.aircraft.airline,
-            matricula: flight.aircraft.registration,
-            ondeEsta: flight.flightData.route.from,
-            paraOndeVai: flight.flightData.route.to,
+            date: this.formetterDate(flight.flightData.date),
+            totalEarnings: this.calculateTotalPointsDetails(flight.flightData.balance, flight.flightData.missionBonus),
+            airline: flight.aircraft.airline,
+            registration: flight.aircraft.registration,
+            from: flight.flightData.route.from,
+            to: flight.flightData.route.to,
             xp: flight.flightData.xp
 
         }
@@ -21,13 +21,13 @@ export class factoryImpl implements IFlightTransformer, ICreateFlightResponse, I
     transformSingle(flight: IFlight): IHomePage {
         return {
             id: flight.id,
-            aeronave: flight.aircraft.name,
-            matricula: flight.aircraft.registration,
-            linhaAerea: flight.aircraft.airline,
-            ondeEsta: flight.flightData.route.from,
-            paraOndeVai: flight.flightData.route.to,
-            data: this.formetterDate(flight.flightData.date),
-            saldo: this.formatterBalance(flight.flightData.balance)
+            aircraft: flight.aircraft.name,
+            registration: flight.aircraft.registration,
+            airline: flight.aircraft.airline,
+            from: flight.flightData.route.from,
+            to: flight.flightData.route.to,
+            date: this.formetterDate(flight.flightData.date),
+            sold: this.formatterBalance(flight.flightData.balance)
         }
     }
     // helper methods
@@ -47,8 +47,8 @@ export class factoryImpl implements IFlightTransformer, ICreateFlightResponse, I
     }
     createSoldTotal(total: number, quantityObj: number): ISoldTotal {
         return {
-            saldoTotal: this.formatterBalance(total),
-            quantidadeVoosSomados: quantityObj
+            totalBalance: this.formatterBalance(total),
+            totalFlights: quantityObj
         }
     }
     private formatterBalance(balance: number): string {

@@ -20,6 +20,7 @@ const Details = ({ url }: DetailsProps) => {
 
   return (
     <main className="sm md lg container d-flex flex-column w-100 gap-5">
+      
       <NavLink to={`/`} className={`d-flex flex-row align-items-center ${styles.details_first_article}`}>
         <img src={Arrow} className={styles.imgDetails} alt="icone de retorno a pagina anterior" />
         <h3 className="fw-bold">Detalhes do voo</h3>

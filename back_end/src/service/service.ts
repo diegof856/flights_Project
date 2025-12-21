@@ -19,7 +19,7 @@ export class FlightService {
         const { paginatedItems, total, totalPages, hasNextPage } =
             this.calculatePages(allTransformed, page, limit);
         return {
-            data: paginatedItems,
+            date: paginatedItems,
             total: total,
             page,
             totalPages,
