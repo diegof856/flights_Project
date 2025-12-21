@@ -1,73 +1,79 @@
-# React + TypeScript + Vite
+# Projeto Histórico de Voos
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este projeto é uma aplicação web para visualização do histórico de voos. Ele permite aos usuários ver uma lista paginada de seus voos anteriores e visualizar informações detalhadas para cada voo, incluindo recompensas.
 
-Currently, two official plugins are available:
+## Pilha Tecnológica
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+*   **Framework:** [React](https://react.dev/)
+*   **Ferramenta de Build:** [Vite](https://vitejs.dev/)
+*   **Linguagem:** [TypeScript](https://www.typescriptlang.org/)
+*   **Roteamento:** [React Router](https://reactrouter.com/)
+*   **Estilização:** [CSS Modules](https://github.com/css-modules/css-modules) e CSS puro.
 
-## React Compiler
+## Estrutura de Pastas
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+O projeto está organizado nos seguintes diretórios principais:
 
-## Expanding the ESLint configuration
+*   `public/`: Contém ativos estáticos que não são processados pela ferramenta de build, como `logo.svg` e `text.svg`.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+*   `src/`: Contém o código fonte principal da aplicação.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+    *   `assets/`: Contém ativos estáticos que são importados para os componentes, como imagens e ícones.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+    *   `components/`: Contém componentes reutilizáveis que são compartilhados em diferentes partes da aplicação.
+        *   `Error.tsx`: Um componente para exibir uma mensagem de erro.
+        *   `ListFlights.tsx`: Um componente que exibe uma lista de voos.
+        *   `Loading.tsx`: Um componente para exibir um indicador de carregamento.
+        *   `NavBar.tsx`: A barra de navegação superior da aplicação.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+    *   `hooks/`: Contém hooks React personalizados.
+        *   `useFetch.tsx`: Um conjunto de hooks personalizados (`useFetchHome`, `useFetchById`, `useFetchTotal`) para buscar dados da API de backend.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+    *   `pages/`: Contém as páginas principais da aplicação.
+        *   `Details/`: A página que exibe os detalhes de um voo específico.
+        *   `Home/`: A página principal da aplicação, que exibe o histórico de voos.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+    *   `utlis/`: Contém funções utilitárias.
+        *   `Utils.tsx`: Contém funções utilitárias usadas na aplicação.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Como Rodar o Projeto
+
+1.  **Instalar dependências:**
+
+    ```bash
+    npm install
+    ```
+
+2.  **Iniciar o servidor de desenvolvimento:**
+
+    ```bash
+    npm run dev
+    ```
+
+    A aplicação estará disponível em `http://localhost:5173`.
+
+## Principais Funcionalidades e Componentes
+
+### Histórico de Voos (página `Home`)
+
+*   Exibe uma lista paginada de voos.
+*   Mostra um indicador de carregamento durante a busca de dados.
+*   Exibe uma mensagem de erro se a busca de dados falhar.
+*   Fornece um botão "Total de Saldo" que abre um modal com o saldo total e o número total de voos.
+*   Usa os hooks personalizados `useFetchHome` e `useFetchTotal` para buscar dados.
+*   Componentes chave:
+    *   `Home.tsx`: O componente principal para a página inicial.
+    *   `ListFlights.tsx`: Renderiza cada voo na lista.
+    *   `Pagination.tsx`: Lida com a lógica de paginação.
+    *   `ModalTotal.tsx`: O modal que exibe o saldo total.
+
+### Detalhes do Voo (página `Details`)
+
+*   Exibe informações detalhadas sobre um voo específico.
+*   Mostra as recompensas do voo, incluindo ganhos totais, XP e bônus.
+*   Fornece um link para retornar à página de histórico de voos.
+*   Usa o hook personalizado `useFetchById` para buscar os detalhes do voo.
+*   Componentes chave:
+    *   `Details.tsx`: O componente principal para a página de detalhes.
+    *   `TotalEarnings.tsx`, `StarXp.tsx`, `Bonus.tsx`: Componentes para exibir as recompensas.
+    *   `ListFlights.tsx`: Reutilizado para exibir os detalhes do voo.
