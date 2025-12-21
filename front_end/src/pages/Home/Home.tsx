@@ -27,7 +27,7 @@ const Home = ({ url }: HomeProps) => {
       {!loading && apiResponse &&
         <ul className="componenstHomeStyles">
           {apiResponse.data.map((flight) => (
-            <ListFlights id={flight.id} aircraft={flight.aeronave} airline={flight.linhaAerea} data={flight.data} from={flight.paraOndeVai} to={flight.ondeEsta} registration={flight.matricula} sold={flight.saldo} />
+            <ListFlights id={flight.id} aircraft={flight.aircraft} airline={flight.airline} data={flight.date} from={flight.from} to={flight.to} registration={flight.registration} sold={flight.sold} />
           ))}
 
         </ul>}

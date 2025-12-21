@@ -36,7 +36,7 @@ const Details = ({ url }: DetailsProps) => {
         {!loading && apiResponse &&
           (
             <article className="d-flex justify-content-between">
-              <TotalEarnings totalEarnings={apiResponse.ganhosTotais} />
+              <TotalEarnings totalEarnings={apiResponse.totalEarnings} />
               <StarXp xp={apiResponse.xp} />
               <Bonus bonus={apiResponse.bonus} />
             </article>
@@ -47,7 +47,7 @@ const Details = ({ url }: DetailsProps) => {
       <section className={styles.sectionRewards}>
 
         {!loading && apiResponse &&
-          <ListFlights aircraft={apiResponse.aeronave} airline={apiResponse.linhaAerea} data={apiResponse.data} from={apiResponse.paraOndeVai} id={apiResponse.id} registration={apiResponse.matricula} to={apiResponse.ondeEsta} />
+          <ListFlights aircraft={apiResponse.aircraft} airline={apiResponse.airline} data={apiResponse.date} from={apiResponse.from} id={apiResponse.id} registration={apiResponse.registration} to={apiResponse.to} />
         }
       </section>
 

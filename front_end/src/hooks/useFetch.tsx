@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react"
 
 interface Flight {
-  id: string;
-  aeronave: string;
-  matricula: string;
-  ondeEsta: string;
-  linhaAerea: string;
-  paraOndeVai: string;
-  data: string;
-  saldo: string;
+  id: string,
+  aircraft: string,
+  airline: string
+  registration: string,
+  from: string,
+  to: string
+  date: string
+  sold: string
 }
 
 interface FetchResponse {
@@ -20,15 +20,15 @@ interface FetchResponse {
 }
 interface FetchResponseById {
   id: string,
-  aeronave: string,
-  bonus: string,
-  data: string,
-  ganhosTotais: string,
-  linhaAerea: string,
-  matricula: string,
-  ondeEsta: string,
-  paraOndeVai: string;
+  totalEarnings: string,
   xp: number
+  bonus: string,
+  airline: string,
+  aircraft: string,
+  from: string,
+  to: string
+  registration: string,
+  date: string
 }
 export const useFetchHome = (url: string) => {
   const [data, setData] = useState<FetchResponse | null>(null);
