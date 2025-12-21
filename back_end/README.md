@@ -1,4 +1,4 @@
-# Projeto de Backend para Consulta de Voos
+# Backend para Consulta de Voos
 
 Este é o backend do projeto de consulta de voos, desenvolvido em Node.js com TypeScript. A seguir, uma documentação detalhada sobre como utilizar e entender a estrutura do projeto.
 
