@@ -1,11 +1,10 @@
 import style from "./TotalEarnings.module.css"
+import {Utils} from "../../../utlis/Utils";
 interface TotalEarningsProps{
     totalEarnings:string,
 }
 const TotalEarnings = ({totalEarnings}:TotalEarningsProps) => {
-  const isNegative = totalEarnings.startsWith('-');
-  const textColor = isNegative ? style.danger : style.success;
-  const displayValue = isNegative ? totalEarnings.replace('-', '') : totalEarnings;
+const {textColor, displayValue, isNegative} =Utils(totalEarnings)
   return (
   <div className="d-flex gap-4">
     <span className={style.circleTotalEarnings}>P$</span>

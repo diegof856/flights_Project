@@ -26,7 +26,7 @@ const Home = ({ url }: HomeProps) => {
         </div>
        
         <div className="p-2 flex-shrink-1">
-          <button className="btnModal page-link" onClick={() => setShowModal(true)}>
+          <button className="btnModal page-link text-nowrap" onClick={() => setShowModal(true)}>
             Total de Saldo
           </button>
         </div>

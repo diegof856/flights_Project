@@ -81,5 +81,13 @@ ul {
   color: inherit;
   border: .1em solid rgba(68, 68, 68, 1);
   border-radius: .4em;
+  padding: .75em;
+}
 
+.danger {
+    color: rgba(255, 0, 0, 1);
+}
+
+.success {
+    color: rgba(0, 255, 136, 1);
 }
