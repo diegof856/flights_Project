@@ -1,0 +1,38 @@
+.pagination {
+    background-color: rgba(33, 33, 33, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: .5em;
+    border: .1em solid rgba(68, 68, 68, 1);
+    border-radius: .4em;
+    gap: 0.5em;
+
+}
+
+.pagination .disabledPerson {
+    color: rgba(68, 68, 68, 1);
+}
+
+.active {
+    border: .1em solid rgba(68, 68, 68, 1);
+    background-color: rgba(33, 33, 33, 1);
+    color: inherit;
+}
+
+.pageLink {
+    background: transparent;
+    color: white;
+    border: .1em solid transparent;
+    padding: .4em .8em;
+    border-radius: .3em;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.pageLink:hover {
+    background-color: rgba(33, 33, 33, 1);
+    border: .1em solid rgba(68, 68, 68, 1);
+    color: inherit;
+
+}

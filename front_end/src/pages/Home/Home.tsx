@@ -1,17 +1,22 @@
 import styles from "./Home.module.css";
-import { useFetch } from "../../hooks/useFetch";
+import { useFetchHome } from "../../hooks/useFetch";
+import { useState } from "react";
 //components
 import Registration from "./components/Registration";
 import Sold from "./components/Sold";
 import Data from "./components/Data";
 import FlightRoute from "./components/FlightRoute";
 import NameAircraftAirline from "./components/NameAircraftAirline";
+import Pagination from "./components/Pagination";
 
 
 const url = "http://localhost:3333/flights";
 const Home = () => {
-  const { data: apiResponse, loading,error } = useFetch(url);
-
+  
+  const [currentPage, setCurrentPage] = useState(1);
+  
+  const { data: apiResponse, loading,error } = useFetchHome(`${url}?limit=5&page=${currentPage}`);
+ 
   return (
     <main className="sm md lg container">
       <article className={`d-flex flex-column ${styles.home_first_article}`}>
@@ -35,7 +40,7 @@ const Home = () => {
       )}
       {!loading && apiResponse &&  <ul className={`${styles.componenstStyles}`}>
           {apiResponse.data.map((flight) => (
-            <li className="d-flex justify-content-between align-items-center flex-row"key={flight.id}>
+            <li className="d-flex page-link justify-content-between align-items-center flex-row"key={flight.id}>
               <NameAircraftAirline aircraft={flight.aeronave} airline={flight.linhaAerea} />
               <FlightRoute from={flight.ondeEsta} to={flight.paraOndeVai}/>
               <Registration registration={flight.matricula}/>
@@ -45,6 +50,8 @@ const Home = () => {
           ))}
 
         </ul>}
+
+        {!loading && apiResponse && <Pagination currentPage={currentPage} hasNextPage={apiResponse.hasNextPage} totalPages={apiResponse.totalPages} setCurrentPage={setCurrentPage}/>}
        
     </main>
   )
