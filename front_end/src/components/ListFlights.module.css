@@ -1,0 +1,7 @@
+.componenstStyles a {
+  padding: 2em;
+  background-color: rgba(33, 33, 33, 1);
+  border: .1em solid rgba(68, 68, 68, 1);
+  border-radius: .4em;
+  margin-bottom: 1em;
+}

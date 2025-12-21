@@ -1,0 +1,22 @@
+.details_first_article{
+     gap: .64em;
+    margin-bottom: 3em;
+
+}
+.imgDetails{
+    width: 2.5em;
+    height: 2.5em;
+}
+a{
+    color: inherit;
+    text-decoration: none;
+}
+.sectionRewards{
+    padding: 1em;
+  background-color: rgba(33, 33, 33, 1);
+  border: .1em solid rgba(68, 68, 68, 1);
+  border-radius: .4em;
+}
+.sectionRewards article{
+    margin-bottom: 2.5em;
+}

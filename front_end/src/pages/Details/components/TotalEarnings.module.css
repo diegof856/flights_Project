@@ -1,0 +1,28 @@
+.circleTotalEarnings{
+background-color: rgba(56, 189, 248, 1);
+    color: #000;              
+    
+    width: 60px;              
+    height: 60px;
+    border-radius: 50%;      
+    
+    display: flex;            
+    align-items: center;     
+    justify-content: center;  
+    
+    font-weight: bold;
+    font-size: 1.2em;
+    flex-shrink: 0;
+}
+.earnings_secondary_div{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: .1em;
+}
+.danger{
+ color: rgba(255,0 , 0, 1);
+}
+.success{
+    color: rgba(0, 255, 136, 1);
+}

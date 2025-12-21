@@ -11,15 +11,24 @@ interface Flight {
   saldo: string;
 }
 
-interface FetchResponse {
+export interface FetchResponse {
   data: Flight[];
   total: number;
   page: number;
   totalPages: number;
   hasNextPage: boolean
 }
-interface FetchResponseById{
-
+interface FetchResponseById {
+  id: string,
+  aeronave: string,
+  bonus: string,
+  data: string,
+  ganhosTotais: string,
+  linhaAerea: string,
+  matricula: string,
+  ondeEsta: string,
+  paraOndeVai: string;
+  xp: number
 }
 export const useFetchHome = (url: string) => {
   const [data, setData] = useState<FetchResponse | null>(null);
@@ -49,11 +58,11 @@ export const useFetchHome = (url: string) => {
   return { data, loading, error };
 };
 export const useFetchById = (url: string) => {
-  const [data, setData] = useState<FetchResponseById| null>(null);
+  const [data, setData] = useState<FetchResponseById | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<any>(null);
 
-   useEffect(() => {
+  useEffect(() => {
     let isMounted = true;
     const fetchData = async () => {
       setLoading(true);

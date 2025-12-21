@@ -27,8 +27,6 @@ const Pagination = ({ currentPage, totalPages, hasNextPage, setCurrentPage }: Pa
         }
     };
 
-
-
     return (
         <nav>
             <ul className={style.pagination}>
@@ -50,7 +48,7 @@ const Pagination = ({ currentPage, totalPages, hasNextPage, setCurrentPage }: Pa
 
                     ))}
                 </li>
-                <li className={`page-item ${hasNextPage ? '' : `${style.disabledPerson} `}`}>
+                <li className={`${hasNextPage ? '' : `${style.disabledPerson} `}`}>
                     <button className="page-link" onClick={handleNextPage}>
                         Próximo
                     </button>
