@@ -1,0 +1,12 @@
+.modalHeaderPerson {
+    color: white;
+    background-color: rgba(33, 33, 33, 1);
+}
+
+.success {
+    color: rgba(0, 255, 136, 1);
+}
+
+.danger {
+    color: rgba(255, 0, 0, 1);
+}

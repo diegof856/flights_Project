@@ -1,6 +1,7 @@
-.danger{
- color: rgba(255,0 , 0, 1);
+.danger {
+    color: rgba(255, 0, 0, 1);
 }
-.success{
+
+.success {
     color: rgba(0, 255, 136, 1);
 }
