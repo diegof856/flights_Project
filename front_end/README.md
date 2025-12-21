@@ -1,4 +1,4 @@
-# Projeto Histórico de Voos
+# Front End
 
 Este projeto é uma aplicação web para visualização do histórico de voos. Ele permite aos usuários ver uma lista paginada de seus voos anteriores e visualizar informações detalhadas para cada voo, incluindo recompensas.
 
