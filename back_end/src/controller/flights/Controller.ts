@@ -11,6 +11,24 @@ export class FlightController {
     constructor(service: FlightService) {
         this.service = service;
     }
+    /**
+ * @openapi
+ * /flights:
+ *   get:
+ *     summary: Retorna todos os voos paginados
+ *     parameters:
+ *       - in: query
+ *         name: page
+ *         schema:
+ *           type: integer
+ *       - in: query
+ *         name: limit
+ *         schema:
+ *           type: integer
+ *     responses:
+ *       200:
+ *         description: Lista de voos retornada com sucesso
+ */
     public getAll = (req: Request, res: Response, next: NextFunction) => {
         try {
             const { page, limit } = validatePageAndLimit(req);
@@ -19,6 +37,23 @@ export class FlightController {
             next(error);
         }
     }
+   /**
+ * @openapi
+ * /flights/{id}:
+ *   get:
+ *     summary: Busca um voo pelo ID
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *     responses:
+ *       200:
+ *         description: Dados do voo
+ *       404:
+ *         description: Voo não encontrado
+ */
     public getById = (req: Request, res: Response, next: NextFunction) => {
         try {
             const { id } = req.params;
@@ -30,6 +65,15 @@ export class FlightController {
 
 
     }
+    /**
+ * @openapi
+ * /flights/total:
+ *   get:
+ *     summary: Calcula o balanço total dos voos
+ *     responses:
+ *       200:
+ *         description: Balanço calculado com sucesso
+ */
     public getCalculateBalance = (req: Request, res: Response, next: NextFunction) => {
         try {
             res.json(this.service.getCalculateFlights(this.processData(dataPath)))

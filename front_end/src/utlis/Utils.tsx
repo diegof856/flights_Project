@@ -5,3 +5,4 @@ export const Utils = (totalBalance: string) => {
     const displayValue = isNegative ? totalBalance.replace('-', '') : totalBalance;
     return { textColor, displayValue, isNegative }
 }
+

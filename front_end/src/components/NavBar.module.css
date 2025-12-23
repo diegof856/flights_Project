@@ -1,6 +1,6 @@
 .nav_images{
   display: flex;
-  align-items: flex-end;
+  align-items:center;
   gap: .64em;
   justify-content: center;
   margin-bottom:.64em ;
